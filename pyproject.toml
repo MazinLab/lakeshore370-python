@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lakeshore370"
+version = "0.1.0"
+description = "Simple Python interface for Lake Shore 370 AC Resistance Bridge"
+authors = [
+    { name = "Nikki Zivkov", email = "nzivkov@ucsb.edu" }
+]
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "pyserial",
+    "pandas",
+    "numpy",
+    "matplotlib"
+]
+
+[project.urls]
+Homepage = "https://github.com/MazinLab/lakeshore370-python"
+
+[project.scripts]
+lakeshore370 = "lakeshore370.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["lakeshore370*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
